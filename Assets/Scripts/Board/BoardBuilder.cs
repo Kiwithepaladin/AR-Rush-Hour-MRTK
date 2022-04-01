@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class BoardBuilder : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class BoardBuilder : MonoBehaviour
         physicalObjects = new List<GameObject>();
         foreach (Tile tile in gameBoard.allTiles)
         {
-            physicalObjects.Add(Instantiate(physicalTileAppearance,tile.TilePosition,Quaternion.identity));
+            GameObject tilePhysical = Instantiate(physicalTileAppearance,tile.TilePosition,Quaternion.identity,transform);
+            tilePhysical.AddComponent<TileMono>().SetTileData(tile);
+            physicalObjects.Add(tilePhysical);
         }
+
     }
 }

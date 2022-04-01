@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCustomProfile: 1
   experienceSettingsProfile: {fileID: 11400000, guid: 24ecf551da452b348a4f0c2ed1004961, type: 2}
-  targetExperienceScale: 4
+  targetExperienceScale: 3
   enableCameraSystem: 1
   cameraProfile: {fileID: 11400000, guid: 769a74491f2ce55409315ef5ebdfec96, type: 2}
   cameraSystemType:
     reference: Microsoft.MixedReality.Toolkit.CameraSystem.MixedRealityCameraSystem,
       Microsoft.MixedReality.Toolkit.Services.CameraSystem
   enableInputSystem: 1
-  inputSystemProfile: {fileID: 11400000, guid: ad2080e8e71c35f4e8bcde94fa68f098, type: 2}
+  inputSystemProfile: {fileID: 11400000, guid: 97ecddd9f39402b46b49064412869b6e, type: 2}
   inputSystemType:
     reference: Microsoft.MixedReality.Toolkit.Input.MixedRealityInputSystem, Microsoft.MixedReality.Toolkit.Services.InputSystem
   enableBoundarySystem: 1

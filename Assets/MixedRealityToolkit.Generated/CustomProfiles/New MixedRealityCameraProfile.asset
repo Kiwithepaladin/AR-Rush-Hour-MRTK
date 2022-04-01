@@ -41,12 +41,19 @@ MonoBehaviour:
     componentName: OpenXR Camera Settings
     priority: 0
     runtimePlatform: -1
-    settingsProfile: {fileID: 11400000, guid: 32349edfa9bacb94a9fe58923e9a2400, type: 2}
+    settingsProfile: {fileID: 11400000, guid: 2c89c39ff57da98409f5199691893f53, type: 2}
+  - componentType:
+      reference: Microsoft.MixedReality.Toolkit.Experimental.UnityAR.UnityARCameraSettings,
+        Microsoft.MixedReality.Toolkit.Providers.UnityAR
+    componentName: Unity AR Foundation Camera Settings
+    priority: 0
+    runtimePlatform: 288
+    settingsProfile: {fileID: 11400000, guid: 575c1e38a550a3643a861be88ef76cf7, type: 2}
   nearClipPlaneOpaqueDisplay: 0.1
   farClipPlaneOpaqueDisplay: 1000
   cameraClearFlagsOpaqueDisplay: 1
   backgroundColorOpaqueDisplay: {r: 0, g: 0, b: 0, a: 1}
-  opaqueQualityLevel: 5
+  opaqueQualityLevel: 2
   nearClipPlaneTransparentDisplay: 0.1
   farClipPlaneTransparentDisplay: 50
   cameraClearFlagsTransparentDisplay: 2
