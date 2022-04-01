@@ -5,7 +5,7 @@ using UnityEngine.XR;
 
 public class BoardBuilder : MonoBehaviour
 {
-    Board gameBoard;
+    public static Board gameBoard;
     [SerializeField] List<GameObject> physicalObjects;
     [SerializeField] private GameObject physicalTileAppearance;
     private void Awake() 
@@ -18,6 +18,5 @@ public class BoardBuilder : MonoBehaviour
             tilePhysical.AddComponent<TileMono>().SetTileData(tile);
             physicalObjects.Add(tilePhysical);
         }
-
     }
 }

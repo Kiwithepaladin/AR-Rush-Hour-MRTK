@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraSupervisor : MonoBehaviour
 {
+    #if UNITY_EDITOR
     public static Camera mainCam;
 
     private void Start() 
@@ -17,4 +18,5 @@ public class CameraSupervisor : MonoBehaviour
         mainCam.transform.position = new Vector3(2.5f,8.5f,-7.5f);
         mainCam.transform.rotation = Quaternion.Euler(45f,mainCam.transform.eulerAngles.y,mainCam.transform.eulerAngles.z);
     }
+    #endif
 }

@@ -13,4 +13,8 @@ public class Tile
     {
         tilePosition = initialPos;
     }
+    public Tile()
+    {
+        tilePosition = Vector3.zero;
+    }
 }
