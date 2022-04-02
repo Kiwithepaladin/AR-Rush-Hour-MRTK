@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    public static bool Victory {get => BoardBuilder.gameBoard.allTiles.Find((t) => t.IsOccupied) != null ? true : false;} 
-
-
+    //Tile victoryTile;
+    private Vector3 victoryTilePosition = new Vector3(5,0,3);
+    // private void Start()
+    // {
+    //     victoryTile = BoardBuilder.gameBoard.allTiles.Find((t) => t.TilePosition == victoryTilePosition);
+    // }
     private void Update()
     {
-        if(Victory)
+        if(BoardBuilder.gameBoard.PlayerUnit.TilesOccupiedBySelf.Contains(BoardBuilder.gameBoard.allTiles.Find((t) => t.TilePosition == victoryTilePosition)))
         {
             print("VICTORYYYYYYY");
         }

@@ -9,6 +9,7 @@ public class Board
     public List<Tile> allTiles = new List<Tile>();
     private const int BOARD_SIZE = 6;
     public List<UnitBase> allUnits = new List<UnitBase>();
+    public UnitBase PlayerUnit;
     public List<Tile> OccupiedTiles {get => UpdateOccupiedTiles();}
     public Board()
     {
@@ -21,6 +22,7 @@ public class Board
             }
         }
         allUnits =  GameObject.FindObjectsOfType<UnitBase>().ToList();
+        PlayerUnit = allUnits[0];
     }
     public List<Tile> UpdateOccupiedTiles()
     {

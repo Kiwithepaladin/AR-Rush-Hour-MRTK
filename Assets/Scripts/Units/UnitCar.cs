@@ -10,7 +10,7 @@ public class UnitCar : UnitBase
         var chacheCurrent = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition);
         if(VehicleDirection == VehicleDirection.Horizontal)
         {
-            var chacheRight = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == chacheCurrent.TilePosition + Vector3.right);
+            var chacheRight = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.right);
             if(chacheCurrent != null || chacheCurrent != null)
             {
                 tempTiles.Add(chacheCurrent);
@@ -19,7 +19,7 @@ public class UnitCar : UnitBase
         }
         else if(VehicleDirection == VehicleDirection.Vertical)
         {
-            var chacheRight = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == chacheCurrent.TilePosition + Vector3.forward);
+            var chacheRight = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.forward);
             if(chacheCurrent != null || chacheCurrent != null)
             {
                 tempTiles.Add(chacheCurrent);
