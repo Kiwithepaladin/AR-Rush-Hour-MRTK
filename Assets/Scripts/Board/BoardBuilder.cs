@@ -7,6 +7,8 @@ public class BoardBuilder : MonoBehaviour
 {
     public static Board gameBoard;
     [SerializeField] List<GameObject> physicalObjects;
+    //made just for debugging reasons
+    [SerializeField] private List<Tile> occupied;
     [SerializeField] private GameObject physicalTileAppearance;
     private void Awake() 
     {
@@ -18,5 +20,9 @@ public class BoardBuilder : MonoBehaviour
             tilePhysical.AddComponent<TileMono>().SetTileData(tile);
             physicalObjects.Add(tilePhysical);
         }
+    }
+    private void Update()
+    {
+        occupied = gameBoard.OccupiedTiles;
     }
 }

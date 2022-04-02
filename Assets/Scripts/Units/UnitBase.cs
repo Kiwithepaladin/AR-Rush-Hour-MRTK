@@ -5,18 +5,19 @@ using UnityEngine;
 
 public abstract partial class UnitBase : MonoBehaviour
 {
-    [SerializeField] private int selfSizeOnGrid = 1;
+    //Currently only supports two vehicle types
+    protected int selfSizeOnGrid {get => this is UnitCar ? 1 : 3;}
     [SerializeField] private Vector3 roundedPos;
     [SerializeField] protected Vector3 RoundedPosition {get => new Vector3(
-        RoundToNearestGrid(transform.position.x), 
+        Mathf.Round(transform.position.x), 
         0f, 
-        RoundToNearestGrid(transform.position.z));}
+        Mathf.Round(transform.position.z));}
     public bool IsPlaced {get => TilesOccupiedBySelf.Count > 0 ? true : false;}
-    private List<Tile> occupiedTilesSelf;
-    protected List<Tile> TilesOccupiedBySelf {get => OccupiedTiles();}
+    [SerializeField] private List<Tile> occupiedTilesSelf;
+    public List<Tile> TilesOccupiedBySelf {get => OccupiedTiles();}
     [SerializeField] private GameObject arrowForward,arrowBackward;
     [SerializeField] private VehicleDirection vehicleDir;
-    [SerializeField] private VehicleDirection VehicleDirection {get => transform.rotation.y == 0 ?  VehicleDirection.Horizontal : VehicleDirection.Vertical;}
+    [SerializeField] protected VehicleDirection VehicleDirection {get => transform.rotation.y != 0 ?  VehicleDirection.Vertical : VehicleDirection.Horizontal;}
     private void Update()
     {
         roundedPos = RoundedPosition;
@@ -25,7 +26,8 @@ public abstract partial class UnitBase : MonoBehaviour
         //Editors note, I need to find a more elegant way of doing this.
         if(VehicleDirection == VehicleDirection.Horizontal)
         {
-            if(BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.right) == null)
+            var chache = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.right + Vector3.right);
+            if(chache == null || chache.IsOccupied)
             {
                 arrowForward.SetActive(false);
             }
@@ -33,7 +35,8 @@ public abstract partial class UnitBase : MonoBehaviour
             {
                 arrowForward.SetActive(true);
             }
-            if(BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.left) == null)
+            chache = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.left + Vector3.left);
+            if(chache == null || chache.IsOccupied)
             {
                 arrowBackward.SetActive(false);
             }
@@ -44,7 +47,8 @@ public abstract partial class UnitBase : MonoBehaviour
         }
         else
         {
-            if(BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.forward) == null)
+            var chache = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.forward + Vector3.forward);
+            if(chache == null || chache.IsOccupied)
             {
                 arrowForward.SetActive(false);
             }
@@ -52,7 +56,8 @@ public abstract partial class UnitBase : MonoBehaviour
             {
                 arrowForward.SetActive(true);
             }
-            if(BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.back) == null)
+            chache = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.back + Vector3.back);
+            if(chache == null || chache.IsOccupied)
             {
                 arrowBackward.SetActive(false);
             }
@@ -61,27 +66,6 @@ public abstract partial class UnitBase : MonoBehaviour
                 arrowBackward.SetActive(true);
             }
         }
-        // else 
-        // {
-        //     rightArrow.SetActive(false);
-        //     leftArrow.SetActive(false);
-        //     if(BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.forward) == null)
-        //     {
-        //         forwardArrow.SetActive(false);
-        //     }
-        //     else
-        //     {
-        //         forwardArrow.SetActive(true);
-        //     }
-        //     if(BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.back) == null)
-        //     {
-        //         backwardArrow.SetActive(false);
-        //     }
-        //     else
-        //     {
-        //         backwardArrow.SetActive(true);
-        //     }
-        // }
     }
     public void FlagMovement(ArrowDirection arrowDirection)
     {
@@ -109,19 +93,7 @@ public abstract partial class UnitBase : MonoBehaviour
             }
         }
     }
-    private List<Tile> OccupiedTiles()
-    {
-        List<Tile> tempTiles = new List<Tile>();
-        foreach (var tile in BoardBuilder.gameBoard.allTiles)
-        {
-            //0.2f is just a small number can be changed later (if needed)
-            if(Vector3.Distance(tile.TilePosition,RoundedPosition) < 0.2f)
-            {
-                tempTiles.Add(tile);
-            }
-        }
-        return tempTiles;
-    }
+    protected abstract List<Tile> OccupiedTiles();
     float RoundToNearestGrid(float pos)
     {
         float xDiff = pos % selfSizeOnGrid;
