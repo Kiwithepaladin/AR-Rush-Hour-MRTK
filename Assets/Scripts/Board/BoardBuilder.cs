@@ -10,8 +10,11 @@ public class BoardBuilder : MonoBehaviour
     //made just for debugging reasons
     [SerializeField] private List<Tile> occupied;
     [SerializeField] private GameObject physicalTileAppearance;
+    [SerializeField] private LevelBuilder levleBuilder;
     private void Awake() 
     {
+        levleBuilder.parentObject = transform;
+        levleBuilder.InitializeLevel();
         gameBoard = new Board();
         physicalObjects = new List<GameObject>();
         foreach (Tile tile in gameBoard.allTiles)

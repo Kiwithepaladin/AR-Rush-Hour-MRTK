@@ -6,13 +6,12 @@ using UnityEngine;
 public abstract partial class UnitBase : MonoBehaviour
 {
     //Currently only supports two vehicle types
-    protected int selfSizeOnGrid {get => this is UnitCar ? 1 : 3;}
+    protected int selfSizeOnGrid {get => this is UnitCar ? 2 : 3;}
     [SerializeField] private Vector3 roundedPos;
     [SerializeField] protected Vector3 RoundedPosition {get => new Vector3(
         Mathf.Round(transform.position.x), 
         0f, 
         Mathf.Round(transform.position.z));}
-    public bool IsPlaced {get => TilesOccupiedBySelf.Count > 0 ? true : false;}
     [SerializeField] private List<Tile> occupiedTilesSelf;
     public List<Tile> TilesOccupiedBySelf {get => OccupiedTiles();}
     [SerializeField] private GameObject arrowForward,arrowBackward;
@@ -47,7 +46,7 @@ public abstract partial class UnitBase : MonoBehaviour
         }
         else
         {
-            var chache = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.forward + Vector3.forward);
+            var chache = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + (Vector3.forward + Vector3.forward));
             if(chache == null || chache.IsOccupied)
             {
                 arrowForward.SetActive(false);
@@ -56,7 +55,7 @@ public abstract partial class UnitBase : MonoBehaviour
             {
                 arrowForward.SetActive(true);
             }
-            chache = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + Vector3.back + Vector3.back);
+            chache = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition + (Vector3.back + Vector3.back));
             if(chache == null || chache.IsOccupied)
             {
                 arrowBackward.SetActive(false);

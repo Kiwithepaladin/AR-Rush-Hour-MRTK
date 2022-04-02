@@ -8,8 +8,24 @@ public class UnitCar : UnitBase
     {
         List<Tile> tempTiles = new List<Tile>();
         var chacheCurrent = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == RoundedPosition);
-        if(chacheCurrent != null)
-            tempTiles.Add(chacheCurrent);
+        if(VehicleDirection == VehicleDirection.Horizontal)
+        {
+            var chacheRight = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == chacheCurrent.TilePosition + Vector3.right);
+            if(chacheCurrent != null || chacheCurrent != null)
+            {
+                tempTiles.Add(chacheCurrent);
+                tempTiles.Add(chacheRight);
+            }
+        }
+        else if(VehicleDirection == VehicleDirection.Vertical)
+        {
+            var chacheRight = BoardBuilder.gameBoard.allTiles.Find((tile) => tile.TilePosition == chacheCurrent.TilePosition + Vector3.forward);
+            if(chacheCurrent != null || chacheCurrent != null)
+            {
+                tempTiles.Add(chacheCurrent);
+                tempTiles.Add(chacheRight);
+            }
+        }
         return tempTiles;
     }
 }

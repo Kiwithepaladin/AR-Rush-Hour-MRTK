@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 7659576776018443710}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7737732044853527584}
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80160f487be6b734eba9d134c1852daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfSizeOnGrid: 1
   roundedPos: {x: 0, y: 0, z: 0}
+  occupiedTilesSelf: []
   arrowForward: {fileID: 144463057}
   arrowBackward: {fileID: 1785683496}
   vehicleDir: 0

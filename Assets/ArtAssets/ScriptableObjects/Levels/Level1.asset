@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5841546764239074eb4bc44d5893cc60, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  units:
+  - initalPosition: {x: 1.5, y: 0.5, z: 3}
+    initalRotation: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
+    type: 0
+    colorMaterial: {fileID: 2100000, guid: af18c7b8d8fb32b4e9b035b7348d3ffa, type: 2}
+  - initalPosition: {x: 4, y: 0.5, z: 0}
+    initalRotation: {x: 0.70710677, y: 0, z: 0, w: -0.70710677}
+    type: 1
+    colorMaterial: {fileID: 2100000, guid: 90285ef1033499f46b8008d1f6a5a5c8, type: 2}
+  - initalPosition: {x: 0, y: 0.5, z: 0.5}
+    initalRotation: {x: 0.49999997, y: -0.49999997, z: -0.49999997, w: -0.49999997}
+    type: 0
+    colorMaterial: {fileID: 2100000, guid: 1aae9f8dfe4ee864a8e766cad7f6160c, type: 2}
+  - initalPosition: {x: 0, y: 0.5, z: 3}
+    initalRotation: {x: 0.49999997, y: 0.49999997, z: 0.49999997, w: -0.49999997}
+    type: 1
+    colorMaterial: {fileID: 2100000, guid: e190f4b36d41a154490d7e176c089b55, type: 2}
+  - initalPosition: {x: 0.5, y: 0.5, z: 5}
+    initalRotation: {x: 0.70710677, y: 0, z: 0, w: -0.70710677}
+    type: 0
+    colorMaterial: {fileID: 2100000, guid: 90285ef1033499f46b8008d1f6a5a5c8, type: 2}
+  - initalPosition: {x: 3, y: 0.5, z: 3}
+    initalRotation: {x: 0.49999997, y: 0.49999997, z: 0.49999997, w: -0.49999997}
+    type: 1
+    colorMaterial: {fileID: 2100000, guid: 531ff2e12e68d7846b276467a30e3d6b, type: 2}
+  - initalPosition: {x: 5, y: 0.5, z: 4}
+    initalRotation: {x: 0.49999997, y: 0.49999997, z: 0.49999997, w: -0.49999997}
+    type: 1
+    colorMaterial: {fileID: 2100000, guid: e639f208ee4818f4b97148a56fa492d4, type: 2}
+  - initalPosition: {x: 4.5, y: 0.5, z: 1}
+    initalRotation: {x: 0.70710677, y: 0, z: 0, w: -0.70710677}
+    type: 0
+    colorMaterial: {fileID: 2100000, guid: e190f4b36d41a154490d7e176c089b55, type: 2}
+  basePrefabCar: {fileID: 7659576776018443710, guid: b8839fd4576fc2146a57c91ee76bceb1, type: 3}
+  basePrefabTruck: {fileID: 5406947252480800825, guid: c932ca0dcccae184b9f17cc0d8eff10d, type: 3}
